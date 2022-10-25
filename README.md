@@ -4,10 +4,14 @@ Esta é uma aplicação para criação de uma API para desenvolver um crontrole 
 
 link para Front End do projeto: https://github.com/bragarr/controle-pagamentos
 
-A base de dados foi criada através de MySQL.
+Durante a fase inicial do projeto esta ocorrendo a contrução do backend junto ao banco de dados.
 
-Principal linguagem: JavaScript através de Node.Js
+Base de Dados em: MySQL.
+
+Principal linguagem: JavaScript (Node.Js)
 
 Status: Em desenvolvimento
+
+Projeto Iniciado em: 24/10/2022
 
 Prazo Estimado: 02/11/2022
