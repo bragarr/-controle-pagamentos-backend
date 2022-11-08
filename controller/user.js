@@ -17,7 +17,7 @@ export const criarNovoCadastro = (req, res) => {
         req.body.nome,
         req.body.email,
         req.body.fone,
-        req.body.tag,
+        req.body.valor,
     ];
 
     db.query(q, [values], (err) => {
@@ -34,7 +34,7 @@ export const atualizarCadastro = (req, res) => {
         req.body.nome,
         req.body.email,
         req.body.fone,
-        req.body.tag,
+        req.body.valor,
     ];
 
     db.query(q, [...values, req.params.id], (err) => {
