@@ -53,3 +53,57 @@ export const deletarCadastro = (req, res) => {
         return res.status(200).json("Cadastro deletado com sucesso!");
     })
 }
+
+export const coletarPagamentos = (_, res) => {
+    const q = "SELECT * FROM fluxo_caixa";
+
+    db.query(q, (err, data) => {
+        if(err) return res.json();
+
+        return res.status(200).json(data);
+    });
+};
+
+export const criarPagamentos = (req, res) => {
+    const q = "INSERT INTO fluxo_caixa(`nome`,`tipo_pagamento`,`valor_pagamento`,`data_pagamento`) VALUES(?)";
+
+    const values = [
+        req.body.nome,
+        req.body.tipo_pagamento,
+        req.body.valor_pagamento,
+        req.body.data_pagamento,
+    ];
+
+    db.query(q, [values], (err) => {
+        if(err) return res.json(err);
+
+        return res.status(200).json("Pagamento registrado com sucesso!");
+    })
+}
+
+export const atualizarPagamentos = (req, res) => {
+    const q = "UPDATE `heroku_e02dbb19d377403`.`fluxo_caixa` SET `nome`=?, `tipo_pagamento`=?, `valor_pagamento`=?, `data_pagamento`=? WHERE (`id`= ?) ";
+
+    const values = [
+        req.body.nome,
+        req.body.tipo_pagamento,
+        req.body.valor_pagamento,
+        req.body.data_pagamento,
+    ];
+
+    db.query(q, [...values, req.params.id], (err) => {
+        if(err) return res.json(err);
+
+        return res.status(200).json("Pagamento Atualizado!");
+    })
+}
+
+export const deletarPagamentos = (req, res) => {
+    const q = "DELETE FROM `heroku_e02dbb19d377403`.`fluxo_caixa` WHERE (`id`=?)";
+
+    db.query(q, [req.params.id], (err) => {
+        if(err) return res.json(err);
+
+        return res.status(200).json("Pagamentto deletado com sucesso!");
+    })
+}
