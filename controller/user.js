@@ -1,5 +1,6 @@
 import { db } from "../db.js";
 
+//Modulo de funções para cadastros de pessoas e fornecedores
 export const coletarCadastros = (_, res) => {
     const q = "SELECT * FROM users";
 
@@ -11,13 +12,13 @@ export const coletarCadastros = (_, res) => {
 };
 
 export const criarNovoCadastro = (req, res) => {
-    const q = "INSERT INTO users(`nome`,`email`,`fone`,`valor`) VALUES(?)";
+    const q = "INSERT INTO users(`nome`,`email`,`fone`,`categoria`) VALUES(?)";
 
     const values = [
         req.body.nome,
         req.body.email,
         req.body.fone,
-        req.body.valor,
+        req.body.categoria,
     ];
 
     db.query(q, [values], (err) => {
@@ -28,13 +29,13 @@ export const criarNovoCadastro = (req, res) => {
 }
 
 export const atualizarCadastro = (req, res) => {
-    const q = "UPDATE `heroku_e02dbb19d377403`.`users` SET `nome`=?, `email`=?, `fone`=?, `valor`=? WHERE (`id`= ?) ";
+    const q = "UPDATE `heroku_e02dbb19d377403`.`users` SET `nome`=?, `email`=?, `fone`=?, `categoria`=? WHERE (`id`= ?) ";
 
     const values = [
         req.body.nome,
         req.body.email,
         req.body.fone,
-        req.body.valor,
+        req.body.categoria,
     ];
 
     db.query(q, [...values, req.params.id], (err) => {
@@ -54,6 +55,8 @@ export const deletarCadastro = (req, res) => {
     })
 }
 
+
+//Modulo de funções para registro de pagamentos
 export const coletarPagamentos = (_, res) => {
     const q = "SELECT * FROM fluxo_caixa";
 
