@@ -13,4 +13,6 @@ const port = process.env.PORT || 4000;
 
 app.use("/", userRoutes)
 
+app.use("/pagamentos", userRoutes)
+
 app.listen(port);

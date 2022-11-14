@@ -14,10 +14,10 @@ router.put("/:id", atualizarCadastro);
 router.delete("/:id", deletarCadastro);
 
 // Tabela Creditos e debitos
-router.get("/", coletarPagamentos);
-router.post("/", criarPagamentos);
-router.put("/:id", atualizarPagamentos);
-router.delete("/:id", deletarPagamentos);
+router.get("/pagamentos", coletarPagamentos);
+router.post("/pagamentos", criarPagamentos);
+router.put("/pagamentos:id", atualizarPagamentos);
+router.delete("/pagamentos:id", deletarPagamentos);
 
 
 export default router;
