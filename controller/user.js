@@ -68,12 +68,13 @@ export const coletarPagamentos = (_, res) => {
 };
 
 export const criarPagamentos = (req, res) => {
-    const q = "INSERT INTO fluxo_caixa(`nome`,`tipo_pagamento`,`valor_pagamento`,`data_pagamento`) VALUES(?)";
+    const q = "INSERT INTO fluxo_caixa(`nome`,`tipo_pagamento`,`valor_pagamento`,`obs`,`data_pagamento`) VALUES(?)";
 
     const values = [
         req.body.nome,
         req.body.tipo_pagamento,
         req.body.valor_pagamento,
+        req.body.obs,
         req.body.data_pagamento,
     ];
 
@@ -85,12 +86,13 @@ export const criarPagamentos = (req, res) => {
 }
 
 export const atualizarPagamentos = (req, res) => {
-    const q = "UPDATE `heroku_e02dbb19d377403`.`fluxo_caixa` SET `nome`=?, `tipo_pagamento`=?, `valor_pagamento`=?, `data_pagamento`=? WHERE (`id`= ?) ";
+    const q = "UPDATE `heroku_e02dbb19d377403`.`fluxo_caixa` SET `nome`=?, `tipo_pagamento`=?, `valor_pagamento`=?,`obs`=?,`data_pagamento`=? WHERE (`id`= ?) ";
 
     const values = [
         req.body.nome,
         req.body.tipo_pagamento,
         req.body.valor_pagamento,
+        req.body.obs,
         req.body.data_pagamento,
     ];
 
