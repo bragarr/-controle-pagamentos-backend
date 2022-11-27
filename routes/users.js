@@ -7,13 +7,13 @@ import { coletarPagamentos, criarPagamentos, atualizarPagamentos, deletarPagamen
 
 const router = express.Router();
 
-// Tabela de Usuários
+// Rotas para requests de módulos de chamadas de HTTPS para criação de contribuintes/fornecedores
 router.get("/", coletarCadastros);
 router.post("/", criarNovoCadastro);
 router.put("/:id", atualizarCadastro);
 router.delete("/:id", deletarCadastro);
 
-// Tabela Creditos e debitos
+// Rotas para requests de módulos de chamadas de HTTPS para criação e registro de pagamentos
 router.get("/pagamentos", coletarPagamentos);
 router.post("/pagamentos", criarPagamentos);
 router.put("/pagamentos:id", atualizarPagamentos);
