@@ -11,11 +11,3 @@ Base de Dados em: MySQL.
 Principal linguagem: JavaScript (Node.Js)
 
 Status: Em desenvolvimento
-
-Projeto Iniciado em: 24/10/2022
-
-Prazo Estimado: 10/11/2022
-
-1º Modulo deste projeto foi concluído em: 03/11/2022
-
-2º Modulo deste projeto contempla a atualização desta API para nova configuração de cadastro de informações pelos usuários da plataforma.
