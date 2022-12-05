@@ -20,7 +20,7 @@ const db_config = {
 let conectionActive;
 
 function handleDisconection () {
-    conectionActive = mysql.createConnection(db_config);
+    conectionActive = db;
 
     conectionActive.connect(function(err) {
         if(err) {
@@ -30,7 +30,7 @@ function handleDisconection () {
     });
 
     conectionActive.on('error', function(err) {
-        console.log('db errot', err);
+        console.log('db error   ', err);
         if(err.code === 'PROTOCOL_CONNECTION_LOST') {
             handleDisconection();
         } else {
