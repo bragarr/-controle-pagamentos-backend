@@ -30,6 +30,14 @@ function handleDisconection () {
             throw err;
         }
     });
+    conectionActive.on('error', function(err) {
+        console.log('db error   ', err);
+        if(err.code === 'PROTOCOL_ENQUEUE_AFTER_FATAL_ERROR') {
+            handleDisconection();
+        } else {
+            throw err;
+        }
+    });
 }
 
 handleDisconection();
