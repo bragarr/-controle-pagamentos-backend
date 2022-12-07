@@ -3,41 +3,37 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-export const db = mysql.createConnection({
+const db = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE
-})
+});
 
-let conectionActive;
+// let connection;
 
-function handleDisconection () {
-    conectionActive = db;
+// function handleDisconnect() {
+//     connection = db;
+    
+//     connection.connect(function(err) {
+//         if(err) {
+//             console.log("error when connecting to db->", err);
+//             setTimeout(handleDisconnect, 2000);
+//         } else {
+//             console.log("conection is successfull");
+//         }
+//     });
 
-    conectionActive.connect(function(err) {
-        if(err) {
-            console.log('error when connecting to db:', err);
-            setTimeout(handleDisconection, 2000);
-        }
-    });
+//     connection.on("error", function(err) {
+//         console.log("db error", err);
+//         if(err.code==="PROTOCOL_CONNECTION_LOST") {
+//             handleDisconnect();
+//         } else {
+//             throw err;
+//         };
+//     });
+// }
 
-    conectionActive.on('error', function(err) {
-        console.log('db error   ', err);
-        if(err.code === 'PROTOCOL_CONNECTION_LOST') {
-            handleDisconection();
-        } else {
-            throw err;
-        }
-    });
-    conectionActive.on('error', function(err) {
-        console.log('db error   ', err);
-        if(err.code === 'PROTOCOL_ENQUEUE_AFTER_FATAL_ERROR') {
-            handleDisconection();
-        } else {
-            throw err;
-        }
-    });
-}
+// handleDisconnect();
 
-handleDisconection();
+export default db;

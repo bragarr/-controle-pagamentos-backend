@@ -1,4 +1,4 @@
-import { db } from "../db.js";
+import db from "../db.js";
 
 // Abaixo estão os módulos de funções para alterações e 
 // atualizações das tabalas para armazenamento de dados de contribuintes/fornecedores e pagamentos registrados
@@ -34,7 +34,7 @@ export const criarNovoCadastro = (req, res) => {
 
 // Atualizar cadastro de contribuinte/fornecedor no banco de dados
 export const atualizarCadastro = (req, res) => {
-    const q = "UPDATE `heroku_e02dbb19d377403`.`users` SET `nome`=?, `email`=?, `fone`=?, `categoria`=? WHERE (`id`= ?) ";
+    const q = "UPDATE `sys`.`users` SET `nome`=?, `email`=?, `fone`=?, `categoria`=? WHERE (`id`= ?) ";
 
     const values = [
         req.body.nome,
@@ -52,7 +52,7 @@ export const atualizarCadastro = (req, res) => {
 
 // Deletar contribuinte/forncedor do banco de dados
 export const deletarCadastro = (req, res) => {
-    const q = "DELETE FROM `heroku_e02dbb19d377403`.`users` WHERE (`id`=?)";
+    const q = "DELETE FROM `sys`.`users` WHERE (`id`=?)";
 
     db.query(q, [req.params.id], (err) => {
         if(err) return res.json(err);
@@ -94,7 +94,7 @@ export const criarPagamentos = (req, res) => {
 
 // Atualizar pagamentos presentes no banco de dados
 export const atualizarPagamentos = (req, res) => {
-    const q = "UPDATE `heroku_e02dbb19d377403`.`fluxo_caixa` SET `nome`=?, `tipo_pagamento`=?, `valor_pagamento`=?,`obs`=?,`data_pagamento`=? WHERE (`id`= ?) ";
+    const q = "UPDATE `sys`.`fluxo_caixa` SET `nome`=?, `tipo_pagamento`=?, `valor_pagamento`=?,`obs`=?,`data_pagamento`=? WHERE (`id`= ?) ";
 
     const values = [
         req.body.nome,
@@ -113,7 +113,7 @@ export const atualizarPagamentos = (req, res) => {
 
 // Deletar pagamento do banco de dados
 export const deletarPagamentos = (req, res) => {
-    const q = "DELETE FROM `heroku_e02dbb19d377403`.`fluxo_caixa` WHERE (`id`=?)";
+    const q = "DELETE FROM `sys`.`fluxo_caixa` WHERE (`id`=?)";
 
     db.query(q, [req.params.id], (err) => {
         if(err) return res.json(err);
