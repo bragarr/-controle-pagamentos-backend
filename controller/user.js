@@ -77,7 +77,7 @@ export const coletarPagamentos = (_, res) => {
 
 // Inserir um novo pagamento no banco de dados
 export const criarPagamentos = (req, res) => {
-    const q = "INSERT INTO fluxo_caixa(`nome`,`tipo_pagamento`,`valor_pagamento`,`obs`,`data_pagamento`, `usuario`,) VALUES(?)";
+    const q = "INSERT INTO fluxo_caixa(`nome`,`tipo_pagamento`,`valor_pagamento`,`obs`,`data_pagamento`,`usuario`) VALUES(?)";
 
     const values = [
         req.body.nome,
@@ -97,7 +97,7 @@ export const criarPagamentos = (req, res) => {
 
 // Atualizar pagamentos presentes no banco de dados
 export const atualizarPagamentos = (req, res) => {
-    const q = "UPDATE `sys`.`fluxo_caixa` SET `nome`=?, `tipo_pagamento`=?, `valor_pagamento`=?,`obs`=?,`data_pagamento`=?, `usuario`=?,WHERE (`id`= ?) ";
+    const q = "UPDATE `sys`.`fluxo_caixa` SET `nome`=?, `tipo_pagamento`=?, `valor_pagamento`=?,`obs`=?,`data_pagamento`=?,`usuario`=?,WHERE (`id`= ?) ";
 
     const values = [
         req.body.nome,
@@ -122,6 +122,6 @@ export const deletarPagamentos = (req, res) => {
     db.query(q, [req.params.id], (err) => {
         if(err) return res.json(err);
 
-        return res.status(200).json("Pagamentto deletado com sucesso!");
+        return res.status(200).json("Pagamento deletado com sucesso!");
     })
 }
