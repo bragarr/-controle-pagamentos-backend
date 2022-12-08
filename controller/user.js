@@ -16,13 +16,14 @@ export const coletarCadastros = (_, res) => {
 
 // Criar contribuinte/forncedor na base dados
 export const criarNovoCadastro = (req, res) => {
-    const q = "INSERT INTO users(`nome`,`email`,`fone`,`categoria`) VALUES(?)";
+    const q = "INSERT INTO users(`nome`,`email`,`fone`,`categoria`,`usuario`) VALUES(?)";
 
     const values = [
         req.body.nome,
         req.body.email,
         req.body.fone,
         req.body.categoria,
+        req.body.usuario
     ];
 
     db.query(q, [values], (err) => {
@@ -34,13 +35,14 @@ export const criarNovoCadastro = (req, res) => {
 
 // Atualizar cadastro de contribuinte/fornecedor no banco de dados
 export const atualizarCadastro = (req, res) => {
-    const q = "UPDATE `sys`.`users` SET `nome`=?, `email`=?, `fone`=?, `categoria`=? WHERE (`id`= ?) ";
+    const q = "UPDATE `sys`.`users` SET `nome`=?, `email`=?, `fone`=?, `categoria`=?, `usuario`=?, WHERE (`id`= ?) ";
 
     const values = [
         req.body.nome,
         req.body.email,
         req.body.fone,
         req.body.categoria,
+        req.body.usuario
     ];
 
     db.query(q, [...values, req.params.id], (err) => {
@@ -75,7 +77,7 @@ export const coletarPagamentos = (_, res) => {
 
 // Inserir um novo pagamento no banco de dados
 export const criarPagamentos = (req, res) => {
-    const q = "INSERT INTO fluxo_caixa(`nome`,`tipo_pagamento`,`valor_pagamento`,`obs`,`data_pagamento`) VALUES(?)";
+    const q = "INSERT INTO fluxo_caixa(`nome`,`tipo_pagamento`,`valor_pagamento`,`obs`,`data_pagamento`, `usuario`,) VALUES(?)";
 
     const values = [
         req.body.nome,
@@ -83,6 +85,7 @@ export const criarPagamentos = (req, res) => {
         req.body.valor_pagamento,
         req.body.obs,
         req.body.data_pagamento,
+        req.body.usuario
     ];
 
     db.query(q, [values], (err) => {
@@ -94,7 +97,7 @@ export const criarPagamentos = (req, res) => {
 
 // Atualizar pagamentos presentes no banco de dados
 export const atualizarPagamentos = (req, res) => {
-    const q = "UPDATE `sys`.`fluxo_caixa` SET `nome`=?, `tipo_pagamento`=?, `valor_pagamento`=?,`obs`=?,`data_pagamento`=? WHERE (`id`= ?) ";
+    const q = "UPDATE `sys`.`fluxo_caixa` SET `nome`=?, `tipo_pagamento`=?, `valor_pagamento`=?,`obs`=?,`data_pagamento`=?, `usuario`=?,WHERE (`id`= ?) ";
 
     const values = [
         req.body.nome,
@@ -102,6 +105,7 @@ export const atualizarPagamentos = (req, res) => {
         req.body.valor_pagamento,
         req.body.obs,
         req.body.data_pagamento,
+        req.body.usuario
     ];
 
     db.query(q, [...values, req.params.id], (err) => {
