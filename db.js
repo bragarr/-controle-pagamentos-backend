@@ -20,7 +20,7 @@ function handleDisconnect() {
             console.log("error when connecting to db->", err);
             setTimeout(handleDisconnect, 2000);
         } else {
-            console.log("conection is successfull");
+            console.log("conection is successfull!");
         }
     });
 
