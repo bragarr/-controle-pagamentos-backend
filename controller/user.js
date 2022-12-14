@@ -35,7 +35,7 @@ export const criarNovoCadastro = (req, res) => {
 
 // Atualizar cadastro de contribuinte/fornecedor no banco de dados
 export const atualizarCadastro = (req, res) => {
-    const q = "UPDATE `heroku_8d9be8586563c0d`.`users` SET `nome`=?, `email`=?, `fone`=?, `categoria`=?, `usuario`=?, WHERE (`id`= ?) ";
+    const q = "UPDATE `sql10584702`.`users` SET `nome`=?, `email`=?, `fone`=?, `categoria`=?, `usuario`=?, WHERE (`id`= ?) ";
 
     const values = [
         req.body.nome,
@@ -54,7 +54,7 @@ export const atualizarCadastro = (req, res) => {
 
 // Deletar contribuinte/forncedor do banco de dados
 export const deletarCadastro = (req, res) => {
-    const q = "DELETE FROM `heroku_8d9be8586563c0d`.`users` WHERE (`id`=?)";
+    const q = "DELETE FROM `sql10584702`.`users` WHERE (`id`=?)";
 
     db.query(q, [req.params.id], (err) => {
         if(err) return res.json(err);
@@ -97,7 +97,7 @@ export const criarPagamentos = (req, res) => {
 
 // Atualizar pagamentos presentes no banco de dados
 export const atualizarPagamentos = (req, res) => {
-    const q = "UPDATE `heroku_8d9be8586563c0d`.`fluxo_caixa` SET `nome`=?, `tipo_pagamento`=?, `valor_pagamento`=?,`obs`=?,`data_pagamento`=?,`usuario`=?,WHERE (`id`= ?) ";
+    const q = "UPDATE `sql10584702`.`fluxo_caixa` SET `nome`=?, `tipo_pagamento`=?, `valor_pagamento`=?,`obs`=?,`data_pagamento`=?,`usuario`=?,WHERE (`id`= ?) ";
 
     const values = [
         req.body.nome,
@@ -117,7 +117,7 @@ export const atualizarPagamentos = (req, res) => {
 
 // Deletar pagamento do banco de dados
 export const deletarPagamentos = (req, res) => {
-    const q = "DELETE FROM `heroku_8d9be8586563c0d`.`fluxo_caixa` WHERE (`id`=?)";
+    const q = "DELETE FROM `sql10584702`.`fluxo_caixa` WHERE (`id`=?)";
 
     db.query(q, [req.params.id], (err) => {
         if(err) return res.json(err);
