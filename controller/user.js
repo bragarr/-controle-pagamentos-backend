@@ -1,4 +1,4 @@
-import db from "../db.js";
+import { db } from "../db.js";
 
 // Abaixo estão os módulos de funções para alterações e 
 // atualizações das tabalas para armazenamento de dados de contribuintes/fornecedores e pagamentos registrados
