@@ -63,6 +63,8 @@ export const deletarCadastro = (req, res) => {
 }
 
 
+// Fluxo de Pagamentos
+
 //Modulo de funções para registro de pagamentos
 export const coletarPagamentos = (_, res) => {
     const q = "SELECT * FROM fluxo_caixa";
@@ -121,5 +123,55 @@ export const deletarPagamentos = (req, res) => {
         if(err) return res.json(err);
 
         return res.status(200).json("Pagamento deletado com sucesso!");
+    })
+}
+
+// Fluxo de Categorias
+
+export const todasAsCategoriasDeCadastro = (_, res) => {
+    const q =  "SELECT * FROM categorias";
+
+    db.query(q, (err, data) => {
+        if(err) return res.json();
+
+        return res.status(200).json(data);
+    })
+}
+
+export const criarNovaCategoria = (req, res) => {
+    const q = "INSERT INTO categorias(`categoria`) VALUES(?)";
+
+    const values = [
+        req.body.categoria,
+    ];
+
+    db.query(q, [values], (err) => {
+        if(err) return res.json(err);
+
+        return res.status(200).json("Categoria criada com sucesso!");
+    })
+}
+
+export const atualizarDescriçãoDaCategoria = (req, res) => {
+    const q = "UPDATE `sql10584702`.`categorias` SET `categoria`=? WHERE (`id`=?)";
+
+    const values = [
+        req.body.categoria,
+    ];
+
+    db.query(q, [...values, req.params.id], (err) => {
+        if(err) return res.json(err);
+
+        return res.status(200).json("Categoria Atualizada!");
+    })
+}
+
+export const deletarCategoria = (req, res) => {
+    const q = "DELETE FROM `sql10584702`.`categorias` WHERE (`id`=?)";
+
+    db.query(q, [req.params.id], (err) => {
+        if(err) return res.json(err);
+
+        return res.status(200).json("Categoria deletado com sucesso!");
     })
 }

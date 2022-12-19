@@ -11,8 +11,10 @@ app.use(cors());
 
 const port = process.env.PORT || 5173;
 
-app.use("/", userRoutes)
+app.use("/", userRoutes);
 
-app.use("/pagamentos", userRoutes)
+app.use("/pagamentos", userRoutes);
+
+app.use("/categorias", userRoutes);
 
 app.listen(port);
