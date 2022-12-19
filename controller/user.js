@@ -139,7 +139,7 @@ export const todasAsCategoriasDeCadastro = (_, res) => {
 }
 
 export const criarNovaCategoria = (req, res) => {
-    const q = "INSERT INTO categorias(`categoria`, `criador`) VALUES(?)";
+    const q = "INSERT INTO categorias(`categoria`,`criador`) VALUES(?)";
 
     const values = [
         req.body.categoria,
