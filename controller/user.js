@@ -139,10 +139,11 @@ export const todasAsCategoriasDeCadastro = (_, res) => {
 }
 
 export const criarNovaCategoria = (req, res) => {
-    const q = "INSERT INTO categorias(`categoria`) VALUES(?)";
+    const q = "INSERT INTO categorias(`categoria`, `criador`) VALUES(?)";
 
     const values = [
         req.body.categoria,
+        req.body.criador,
     ];
 
     db.query(q, [values], (err) => {
@@ -153,10 +154,11 @@ export const criarNovaCategoria = (req, res) => {
 }
 
 export const atualizarDescriçãoDaCategoria = (req, res) => {
-    const q = "UPDATE `sql10584702`.`categorias` SET `categoria`=? WHERE (`id`=?)";
+    const q = "UPDATE `sql10584702`.`categorias` SET `categoria`=?, `criador`=? WHERE (`id`=?)";
 
     const values = [
         req.body.categoria,
+        req.body.criador,
     ];
 
     db.query(q, [...values, req.params.id], (err) => {
