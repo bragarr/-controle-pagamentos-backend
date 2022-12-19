@@ -35,7 +35,7 @@ export const criarNovoCadastro = (req, res) => {
 
 // Atualizar cadastro de contribuinte/fornecedor no banco de dados
 export const atualizarCadastro = (req, res) => {
-    const q = "UPDATE `sql10584702`.`users` SET `nome`=?, `email`=?, `fone`=?, `categoria`=?, WHERE (`id`= ?) ";
+    const q = "UPDATE `sql10584702`.`users` SET `nome`=?, `email`=?, `fone`=?, `categoria`=? WHERE (`id`=?)";
 
     const values = [
         req.body.nome,
@@ -96,7 +96,7 @@ export const criarPagamentos = (req, res) => {
 
 // Atualizar pagamentos presentes no banco de dados
 export const atualizarPagamentos = (req, res) => {
-    const q = "UPDATE `sql10584702`.`fluxo_caixa` SET `nome`=?, `tipo_pagamento`=?, `valor_pagamento`=?,`obs`=?,`data_pagamento`=?,WHERE (`id`= ?) ";
+    const q = "UPDATE `sql10584702`.`fluxo_caixa` SET `nome`=?, `tipo_pagamento`=?, `valor_pagamento`=?,`obs`=?,`data_pagamento`=? WHERE (`id`=?)";
 
     const values = [
         req.body.nome,
