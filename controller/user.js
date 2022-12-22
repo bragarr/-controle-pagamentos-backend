@@ -174,6 +174,6 @@ export const deletarCategoria = (req, res) => {
     db.query(q, [req.params.idcategorias], (err) => {
         if(err) return res.json(err);
 
-        return res.status(200).json("Categoria deletado com sucesso!");
+        return res.status(200).json("Categoria deletada com sucesso!");
     })
 }
