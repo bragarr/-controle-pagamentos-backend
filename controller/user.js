@@ -153,7 +153,7 @@ export const criarNovaCategoria = (req, res) => {
     })
 }
 
-export const atualizarDescriçãoDaCategoria = (req, res) => {
+export const atualizarDescricaoDaCategoria = (req, res) => {
     const q = "UPDATE `sql10584702`.`categorias` SET `categoria`=?, `criador`=? WHERE (`idcategorias`=?)";
 
     const values = [
