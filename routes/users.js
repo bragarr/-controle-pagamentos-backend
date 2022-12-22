@@ -20,14 +20,14 @@ router.delete("/:id", deletarCadastro);
 // Rotas para requests de módulos de chamadas de HTTPS para criação e registro de pagamentos
 router.get("/pagamentos", coletarPagamentos);
 router.post("/pagamentos", criarPagamentos);
-router.put("/pagamentos:id", atualizarPagamentos);
-router.delete("/pagamentos:id", deletarPagamentos);
+router.put("/pagamentos:idfluxo_caixa", atualizarPagamentos);
+router.delete("/pagamentos:idfluxo_caixa", deletarPagamentos);
 
 // Rotas para criação de categorias
 router.get("/categorias", todasAsCategoriasDeCadastro);
 router.post("/categorias", criarNovaCategoria);
-router.put("/categorias:id", atualizarDescriçãoDaCategoria);
-router.delete("/categorias:id", deletarCategoria);
+router.put("/categorias:idcategorias", atualizarDescriçãoDaCategoria);
+router.delete("/categorias:idcategorias", deletarCategoria);
 
 
 export default router;
