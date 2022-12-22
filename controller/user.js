@@ -98,7 +98,7 @@ export const criarPagamentos = (req, res) => {
 
 // Atualizar pagamentos presentes no banco de dados
 export const atualizarPagamentos = (req, res) => {
-    const q = "UPDATE `sql10584702`.`fluxo_caixa` SET `nome`=?, `tipo_pagamento`=?, `valor_pagamento`=?,`obs`=?,`data_pagamento`=? WHERE (`id`=?)";
+    const q = "UPDATE `sql10584702`.`fluxo_caixa` SET `nome`=?, `tipo_pagamento`=?, `valor_pagamento`=?,`obs`=?,`data_pagamento`=? WHERE (`idfluxo_caixa`=?)";
 
     const values = [
         req.body.nome,
@@ -117,7 +117,7 @@ export const atualizarPagamentos = (req, res) => {
 
 // Deletar pagamento do banco de dados
 export const deletarPagamentos = (req, res) => {
-    const q = "DELETE FROM `sql10584702`.`fluxo_caixa` WHERE (`id`=?)";
+    const q = "DELETE FROM `sql10584702`.`fluxo_caixa` WHERE (`idfluxo_caixa`=?)";
 
     db.query(q, [req.params.id], (err) => {
         if(err) return res.json(err);
@@ -154,7 +154,7 @@ export const criarNovaCategoria = (req, res) => {
 }
 
 export const atualizarDescriçãoDaCategoria = (req, res) => {
-    const q = "UPDATE `sql10584702`.`categorias` SET `categoria`=?, `criador`=? WHERE (`id`=?)";
+    const q = "UPDATE `sql10584702`.`categorias` SET `categoria`=?, `criador`=? WHERE (`idcategorias`=?)";
 
     const values = [
         req.body.categoria,
@@ -169,7 +169,7 @@ export const atualizarDescriçãoDaCategoria = (req, res) => {
 }
 
 export const deletarCategoria = (req, res) => {
-    const q = "DELETE FROM `sql10584702`.`categorias` WHERE (`id`=?)";
+    const q = "DELETE FROM `sql10584702`.`categorias` WHERE (`idcategorias`=?)";
 
     db.query(q, [req.params.id], (err) => {
         if(err) return res.json(err);
