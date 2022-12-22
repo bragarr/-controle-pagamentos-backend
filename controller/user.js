@@ -161,7 +161,7 @@ export const atualizarDescriçãoDaCategoria = (req, res) => {
         req.body.criador,
     ];
 
-    db.query(q, [...values, req.params.id], (err) => {
+    db.query(q, [...values, req.params.idcategorias], (err) => {
         if(err) return res.json(err);
 
         return res.status(200).json("Categoria Atualizada!");
@@ -171,7 +171,7 @@ export const atualizarDescriçãoDaCategoria = (req, res) => {
 export const deletarCategoria = (req, res) => {
     const q = "DELETE FROM `sql10584702`.`categorias` WHERE (`idcategorias`=?)";
 
-    db.query(q, [req.params.id], (err) => {
+    db.query(q, [req.params.idcategorias], (err) => {
         if(err) return res.json(err);
 
         return res.status(200).json("Categoria deletado com sucesso!");
