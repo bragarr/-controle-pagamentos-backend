@@ -1,8 +1,9 @@
 import express from "express";
-
-import userRoutes from "./routes/users.js"
-
 import cors from "cors";
+
+import { routerUsers } from "./routes/users.js";
+import { routerCategories } from "./routes/categories.js";
+import { routerPayments } from "./routes/payments.js";
 
 const app = express();
 
@@ -11,10 +12,8 @@ app.use(cors());
 
 const port = process.env.PORT || 5173;
 
-app.use("/", userRoutes);
-
-app.use("/pagamentos", userRoutes);
-
-app.use("/categorias", userRoutes);
+app.use("/", routerUsers);
+app.use("/pagamentos", routerPayments);
+app.use("/categorias", routerCategories);
 
 app.listen(port);
