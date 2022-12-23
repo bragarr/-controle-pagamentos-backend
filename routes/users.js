@@ -15,19 +15,19 @@ const router = express.Router();
 router.get("/", coletarCadastros);
 router.post("/", criarNovoCadastro);
 router.put("/:id", atualizarCadastro);
-// router.delete("/:id", deletarCadastro);
+router.delete("/:id", deletarCadastro);
 
 // Rotas para requests de módulos de chamadas de HTTPS para criação e registro de pagamentos
 router.get("/pagamentos", coletarPagamentos);
 router.post("/pagamentos", criarPagamentos);
-router.put("/pagamentos:idfluxo_caixa", atualizarPagamentos);
-// router.delete("/pagamentos:idfluxo_caixa", deletarPagamentos);
+router.put("/pagamentos/:idfluxo_caixa", atualizarPagamentos);
+router.delete("/pagamentos/:idfluxo_caixa", deletarPagamentos);
 
 // Rotas para criação de categorias
 router.get("/categorias", todasAsCategoriasDeCadastro);
 router.post("/categorias", criarNovaCategoria);
-router.put("/categorias:idcategorias", atualizarDescricaoDaCategoria);
-router.delete("/categorias:idcategorias", deletarCategoria);
+router.put("/categorias/:idcategorias", atualizarDescricaoDaCategoria);
+router.delete("/categorias/:idcategorias", deletarCategoria);
 
 
 export default router;
