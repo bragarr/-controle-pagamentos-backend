@@ -11,12 +11,6 @@ import { todasAsCategoriasDeCadastro, criarNovaCategoria, atualizarDescricaoDaCa
 
 const router = express.Router();
 
-// Rotas para requests de módulos de chamadas de HTTPS para criação de contribuintes/fornecedores
-router.get("/", coletarCadastros);
-router.post("/", criarNovoCadastro);
-router.put("/:id", atualizarCadastro);
-router.delete("/:id", deletarCadastro);
-
 // Rotas para requests de módulos de chamadas de HTTPS para criação e registro de pagamentos
 router.get("/pagamentos", coletarPagamentos);
 router.post("/pagamentos", criarPagamentos);
@@ -29,5 +23,10 @@ router.post("/categorias", criarNovaCategoria);
 router.put("/categorias/:idcategorias", atualizarDescricaoDaCategoria);
 router.delete("/categorias/:idcategorias", deletarCategoria);
 
+// Rotas para requests de módulos de chamadas de HTTPS para criação de contribuintes/fornecedores
+router.get("/", coletarCadastros);
+router.post("/", criarNovoCadastro);
+router.put("/:id", atualizarCadastro);
+router.delete("/:id", deletarCadastro);
 
 export default router;
