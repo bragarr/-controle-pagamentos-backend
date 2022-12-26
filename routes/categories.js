@@ -1,5 +1,5 @@
 import express from "express";
-import { todasAsCategoriasDeCadastro, criarNovaCategoria, atualizarDescricaoDaCategoria, deletarCategoria } from "../controller/user.js";
+import { todasAsCategoriasDeCadastro, criarNovaCategoria, atualizarDescricaoDaCategoria, deletarCategoria } from "../controller/category.js";
 
 export const routerCategories = express.Router();
 

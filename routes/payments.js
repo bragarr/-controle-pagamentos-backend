@@ -1,5 +1,5 @@
 import express from "express";
-import { coletarPagamentos, criarPagamentos, atualizarPagamentos, deletarPagamentos } from "../controller/user.js";
+import { coletarPagamentos, criarPagamentos, atualizarPagamentos, deletarPagamentos } from "../controller/payment.js";
 
 export const routerPayments = express.Router();
 
