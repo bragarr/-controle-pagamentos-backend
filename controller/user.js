@@ -35,7 +35,7 @@ export const criarNovoCadastro = (req, res) => {
 
 // Atualizar cadastro de contribuinte/fornecedor no banco de dados
 export const atualizarCadastro = (req, res) => {
-    const q = "UPDATE `sql10584702`.`users` SET `nome`=?, `email`=?, `fone`=?, `categoria`=? WHERE (`id`=?)";
+    const q = "UPDATE `db_control_pag`.`users` SET `nome`=?, `email`=?, `fone`=?, `categoria`=? WHERE (`id`=?)";
 
     const values = [
         req.body.nome,
@@ -53,7 +53,7 @@ export const atualizarCadastro = (req, res) => {
 
 // Deletar contribuinte/forncedor do banco de dados
 export const deletarCadastro = (req, res) => {
-    const q = "DELETE FROM `sql10584702`.`users` WHERE (`id`=?)";
+    const q = "DELETE FROM `db_control_pag`.`users` WHERE (`id`=?)";
 
     db.query(q, [req.params.id], (err) => {
         if(err) return res.json(err);

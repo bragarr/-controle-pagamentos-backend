@@ -35,7 +35,7 @@ export const criarPagamentos = (req, res) => {
 
 // Atualizar pagamentos presentes no banco de dados
 export const atualizarPagamentos = (req, res) => {
-    const q = "UPDATE `sql10584702`.`fluxo_caixa` SET `nome`=?, `tipo_pagamento`=?, `valor_pagamento`=?,`obs`=?,`data_pagamento`=? WHERE (`idfluxo_caixa`=?)";
+    const q = "UPDATE `db_control_pag`.`fluxo_caixa` SET `nome`=?, `tipo_pagamento`=?, `valor_pagamento`=?,`obs`=?,`data_pagamento`=? WHERE (`idfluxo_caixa`=?)";
 
     const values = [
         req.body.nome,
@@ -54,7 +54,7 @@ export const atualizarPagamentos = (req, res) => {
 
 // Deletar pagamento do banco de dados
 export const deletarPagamentos = (req, res) => {
-    const q = "DELETE FROM `sql10584702`.`fluxo_caixa` WHERE (`idfluxo_caixa`=?)";
+    const q = "DELETE FROM `db_control_pag`.`fluxo_caixa` WHERE (`idfluxo_caixa`=?)";
 
     db.query(q, [req.params.id], (err) => {
         if(err) return res.json(err);

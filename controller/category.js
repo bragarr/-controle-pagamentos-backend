@@ -28,7 +28,7 @@ export const criarNovaCategoria = (req, res) => {
 }
 
 export const atualizarDescricaoDaCategoria = (req, res) => {
-    const q = "UPDATE `sql10584702`.`categorias` SET `categoria`=?, `criador`=? WHERE (`idcategorias`=?)";
+    const q = "UPDATE `db_control_pag`.`categorias` SET `categoria`=?, `criador`=? WHERE (`idcategorias`=?)";
 
     const values = [
         req.body.categoria,
@@ -43,7 +43,7 @@ export const atualizarDescricaoDaCategoria = (req, res) => {
 }
 
 export const deletarCategoria = (req, res) => {
-    const q = "DELETE FROM `sql10584702`.`categorias` WHERE (`idcategorias`=?)";
+    const q = "DELETE FROM `db_control_pag`.`categorias` WHERE (`idcategorias`=?)";
 
     db.query(q, [req.params.idcategorias], (err) => {
         if(err) return res.json(err);
