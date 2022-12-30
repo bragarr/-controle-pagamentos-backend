@@ -1,29 +1,5 @@
 import { db } from "../db.js";
 
-let connection;
-
-function handleDisconnect() {
-    connection = db;
-    
-    connection.connect(function(err) {
-        if(err) {
-            console.log("error when connecting to db->", err);
-            setTimeout(handleDisconnect, 2000);
-        } else {
-            console.log("conection is successfull!");
-        }
-    });
-
-    connection.on("error", function(err) {
-        console.log("db error", err);
-        if(err.code==="PROTOCOL_CONNECTION_LOST") {
-            handleDisconnect();
-        } else {
-            throw err;
-        };
-    });
-}
-
 // Abaixo estão os módulos de funções para alterações e 
 // atualizações das tabalas para armazenamento de dados de contribuintes/fornecedores e pagamentos registrados
 
@@ -32,11 +8,7 @@ export const coletarCadastros = (_, res) => {
     const q = "SELECT * FROM users";
 
     db.query(q, (err, data) => {
-        if(err) {
-            handleDisconnect();
-            return res.json()
-        };
-
+        if(err) return res.json()
         return res.status(200).json(data);
     });
 };
