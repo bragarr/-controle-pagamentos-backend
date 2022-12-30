@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const port = process.env.PORT || 5173;
+const port = process.env.PORT;
 
 app.use("/", routerUsers);
 app.use("/pagamentos", routerPayments);
