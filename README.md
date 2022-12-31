@@ -2,12 +2,16 @@
 
 Esta é uma aplicação para criação de uma API para desenvolver um crontrole de pagamentos.
 
-link para Front End do projeto: https://github.com/bragarr/controle-pagamentos
+Principal Objetivos dessa aplicação.
 
-Durante a fase inicial do projeto esta ocorrendo a contrução do backend junto ao banco de dados.
+*Construir Base de Dados de Cadastro de Pessoas/Empresas de uma plataforma Web
+
+*Registrar Fluxo de Pagamentos conforme Dados de Cadastro
+
+*Cadastrar Categorias Conforme Necessidade do Usuário para Cadastro de Pessoas/Empresas.
+
+link para Front End do projeto: https://github.com/bragarr/controle-pagamentos
 
 Base de Dados em: MySQL.
 
-Principal linguagem: JavaScript (Node.Js)
-
-Status: Em desenvolvimento
+Linguagem: JavaScript (Node.Js)
