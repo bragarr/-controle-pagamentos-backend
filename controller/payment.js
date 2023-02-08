@@ -44,7 +44,7 @@ export const atualizarPagamentos = (req, res) => {
         req.body.data_pagamento
     ];
 
-    db.query(q, [...values, req.params.id], (err) => {
+    db.query(q, [...values, req.params.idfluxo_caixa], (err) => {
         if(err) return res.json(err);
 
         return res.status(200).json("Pagamento Atualizado!");
@@ -55,7 +55,7 @@ export const atualizarPagamentos = (req, res) => {
 export const deletarPagamentos = (req, res) => {
     const q = "DELETE FROM `db_control_pag`.`fluxo_caixa` WHERE (`idfluxo_caixa`=?)";
 
-    db.query(q, [req.params.id], (err) => {
+    db.query(q, [req.params.idfluxo_caixa], (err) => {
         if(err) return res.json(err);
 
         return res.status(200).json("Pagamento deletado com sucesso!");
