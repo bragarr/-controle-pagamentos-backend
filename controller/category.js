@@ -22,7 +22,7 @@ export const criarNovaCategoria = (req, res) => {
     db.query(q, [values], (err) => {
         if(err) return res.json(err);
 
-        return res.status(200).json("Categoria criada com sucesso!");
+        return res.status(200).json("Category created!");
     })
 }
 
@@ -37,7 +37,7 @@ export const atualizarDescricaoDaCategoria = (req, res) => {
     db.query(q, [...values, req.params.idcategorias], (err) => {
         if(err) return res.json(err);
 
-        return res.status(200).json("Categoria Atualizada!");
+        return res.status(200).json("Data updated!");
     })
 }
 
@@ -47,6 +47,6 @@ export const deletarCategoria = (req, res) => {
     db.query(q, [req.params.idcategorias], (err) => {
         if(err) return res.json(err);
 
-        return res.status(200).json("Categoria deletada com sucesso!");
+        return res.status(200).json("Category deleted successfully!");
     })
 }

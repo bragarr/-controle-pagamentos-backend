@@ -28,7 +28,7 @@ export const criarPagamentos = (req, res) => {
     db.query(q, [values], (err) => {
         if(err) return res.json(err);
 
-        return res.status(200).json("Pagamento registrado com sucesso!");
+        return res.status(200).json("Payment done!");
     })
 }
 
@@ -47,7 +47,7 @@ export const atualizarPagamentos = (req, res) => {
     db.query(q, [...values, req.params.idfluxo_caixa], (err) => {
         if(err) return res.json(err);
 
-        return res.status(200).json("Pagamento Atualizado!");
+        return res.status(200).json("Data updated!");
     })
 }
 
@@ -58,6 +58,6 @@ export const deletarPagamentos = (req, res) => {
     db.query(q, [req.params.idfluxo_caixa], (err) => {
         if(err) return res.json(err);
 
-        return res.status(200).json("Pagamento deletado com sucesso!");
+        return res.status(200).json("Payment deleted!");
     })
 }

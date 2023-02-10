@@ -46,7 +46,7 @@ export const atualizarCadastro = (req, res) => {
     db.query(q, [...values, req.params.id], (err) => {
         if(err) return res.json(err);
 
-        return res.status(200).json("Cadastro Atualizado!");
+        return res.status(200).json("Data updated!");
     })
 }
 
@@ -57,6 +57,6 @@ export const deletarCadastro = (req, res) => {
     db.query(q, [req.params.id], (err) => {
         if(err) return res.json(err);
 
-        return res.status(200).json("Cadastro deletado com sucesso!");
+        return res.status(200).json("Register deleted!");
     })
 }
