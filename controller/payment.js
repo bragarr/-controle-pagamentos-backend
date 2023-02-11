@@ -14,11 +14,12 @@ export const coletarPagamentos = (_, res) => {
 
 // Inserir um novo pagamento no banco de dados
 export const criarPagamentos = (req, res) => {
-    const q = "INSERT INTO fluxo_caixa(`nome`,`tipo_pagamento`,`valor_pagamento`,`obs`,`data_pagamento`,`usuario`) VALUES(?)";
+    const q = "INSERT INTO fluxo_caixa(`nome`,`tipo_pagamento`, `categoria`,`valor_pagamento`,`obs`,`data_pagamento`,`usuario`) VALUES(?)";
 
     const values = [
         req.body.nome,
         req.body.tipo_pagamento,
+        req.body.categoria,
         req.body.valor_pagamento,
         req.body.obs,
         req.body.data_pagamento,
@@ -34,11 +35,12 @@ export const criarPagamentos = (req, res) => {
 
 // Atualizar pagamentos presentes no banco de dados
 export const atualizarPagamentos = (req, res) => {
-    const q = "UPDATE `db_control_pag`.`fluxo_caixa` SET `nome`=?, `tipo_pagamento`=?, `valor_pagamento`=?,`obs`=?,`data_pagamento`=? WHERE (`idfluxo_caixa`=?)";
+    const q = "UPDATE `db_control_pag`.`fluxo_caixa` SET `nome`=?, `tipo_pagamento`=?, `categoria`=?,`valor_pagamento`=?,`obs`=?,`data_pagamento`=? WHERE (`idfluxo_caixa`=?)";
 
     const values = [
         req.body.nome,
         req.body.tipo_pagamento,
+        req.body.categoria,
         req.body.valor_pagamento,
         req.body.obs,
         req.body.data_pagamento
