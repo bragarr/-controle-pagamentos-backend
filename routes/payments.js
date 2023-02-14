@@ -5,5 +5,5 @@ export const routerPayments = express.Router();
 
 routerPayments.get("/", getAllPayment);
 routerPayments.post("/", addNewPayment);
-routerPayments.put("/:idfluxo_caixa", updatePayment);
-routerPayments.delete("/:idfluxo_caixa", deletePayment);
+routerPayments.put("/:idpay_control", updatePayment);
+routerPayments.delete("/:idpay_control", deletePayment);
