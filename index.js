@@ -13,9 +13,9 @@ app.use(express.json());
 
 const port = process.env.PORT || 8000;
 
-app.use("/", routerUsers);
-app.use("/pagamentos", routerPayments);
-app.use("/categorias", routerCategories);
+app.use("/users", routerUsers);
+app.use("/payments", routerPayments);
+app.use("/categories", routerCategories);
 app.use("/callingcodes", routerCallingCodes);
 
 app.listen(port, () => {

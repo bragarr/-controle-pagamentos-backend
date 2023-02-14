@@ -1,9 +1,7 @@
 import { db } from "../db.js";
 
-// Fluxo de Categorias
-
-export const todasAsCategoriasDeCadastro = (_, res) => {
-    const q =  "SELECT * FROM categorias";
+export const getAllCategories = (_, res) => {
+    const q =  "SELECT * FROM categories";
 
     db.query(q, (err, data) => {
         if(err) return res.json();
@@ -11,12 +9,12 @@ export const todasAsCategoriasDeCadastro = (_, res) => {
     })
 }
 
-export const criarNovaCategoria = (req, res) => {
-    const q = "INSERT INTO categorias(`categoria`,`criador`) VALUES(?)";
+export const addNewCategory = (req, res) => {
+    const q = "INSERT INTO categories(`category`,`createdby`) VALUES(?)";
 
     const values = [
-        req.body.categoria,
-        req.body.criador,
+        req.body.category,
+        req.body.createdby,
     ];
 
     db.query(q, [values], (err) => {
@@ -26,25 +24,25 @@ export const criarNovaCategoria = (req, res) => {
     })
 }
 
-export const atualizarDescricaoDaCategoria = (req, res) => {
-    const q = "UPDATE `db_control_pag`.`categorias` SET `categoria`=?, `criador`=? WHERE (`idcategorias`=?)";
+export const updateCategory = (req, res) => {
+    const q = "UPDATE `db_control_pag`.`categories` SET `category`=?, `createdby`=? WHERE (`idcategories`=?)";
 
     const values = [
-        req.body.categoria,
-        req.body.criador,
+        req.body.category,
+        req.body.createdby,
     ];
 
-    db.query(q, [...values, req.params.idcategorias], (err) => {
+    db.query(q, [...values, req.params.idcategories], (err) => {
         if(err) return res.json(err);
 
         return res.status(200).json("Data updated!");
     })
 }
 
-export const deletarCategoria = (req, res) => {
-    const q = "DELETE FROM `db_control_pag`.`categorias` WHERE (`idcategorias`=?)";
+export const deleteCategory = (req, res) => {
+    const q = "DELETE FROM `db_control_pag`.`categories` WHERE (`idcategories`=?)";
 
-    db.query(q, [req.params.idcategorias], (err) => {
+    db.query(q, [req.params.idcategories], (err) => {
         if(err) return res.json(err);
 
         return res.status(200).json("Category deleted successfully!");

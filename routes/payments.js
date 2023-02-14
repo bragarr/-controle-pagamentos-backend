@@ -1,10 +1,9 @@
 import express from "express";
-import { coletarPagamentos, criarPagamentos, atualizarPagamentos, deletarPagamentos } from "../controller/payment.js";
+import { getAllPayment, addNewPayment, updatePayment, deletePayment } from "../controller/payment.js";
 
 export const routerPayments = express.Router();
 
-// Rotas para requests de módulos de chamadas de HTTPS para criação e registro de pagamentos
-routerPayments.get("/", coletarPagamentos);
-routerPayments.post("/", criarPagamentos);
-routerPayments.put("/:idfluxo_caixa", atualizarPagamentos);
-routerPayments.delete("/:idfluxo_caixa", deletarPagamentos);
+routerPayments.get("/", getAllPayment);
+routerPayments.post("/", addNewPayment);
+routerPayments.put("/:idfluxo_caixa", updatePayment);
+routerPayments.delete("/:idfluxo_caixa", deletePayment);

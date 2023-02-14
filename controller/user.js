@@ -1,10 +1,6 @@
 import { db } from "../db.js";
 
-// Abaixo estão os módulos de funções para alterações e 
-// atualizações das tabalas para armazenamento de dados de contribuintes/fornecedores e pagamentos registrados
-
-//Modulo de funções para cadastros de pessoas e fornecedores
-export const coletarCadastros = (_, res) => {
+export const getAllUsers = (_, res) => {
     const q = "SELECT * FROM users";
 
     db.query(q, (err, data) => {
@@ -13,16 +9,15 @@ export const coletarCadastros = (_, res) => {
     });
 };
 
-// Criar contribuinte/forncedor na base dados
-export const criarNovoCadastro = (req, res) => {
-    const q = "INSERT INTO users(`nome`,`email`,`fone`,`categoria`,`usuario`) VALUES(?)";
+export const addNewUser = (req, res) => {
+    const q = "INSERT INTO users(`name`,`email`,`phone`,`category`,`user`) VALUES(?)";
 
     const values = [
-        req.body.nome,
+        req.body.name,
         req.body.email,
-        req.body.fone,
-        req.body.categoria,
-        req.body.usuario
+        req.body.phone,
+        req.body.category,
+        req.body.user
     ];
 
     db.query(q, [values], (err) => {
@@ -32,15 +27,14 @@ export const criarNovoCadastro = (req, res) => {
     })
 }
 
-// Atualizar cadastro de contribuinte/fornecedor no banco de dados
-export const atualizarCadastro = (req, res) => {
-    const q = "UPDATE `db_control_pag`.`users` SET `nome`=?, `email`=?, `fone`=?, `categoria`=? WHERE (`id`=?)";
+export const updateNewUser = (req, res) => {
+    const q = "UPDATE `db_control_pag`.`users` SET `name`=?, `email`=?, `phone`=?, `category`=? WHERE (`id`=?)";
 
     const values = [
-        req.body.nome,
+        req.body.name,
         req.body.email,
-        req.body.fone,
-        req.body.categoria
+        req.body.phone,
+        req.body.category
     ];
 
     db.query(q, [...values, req.params.id], (err) => {
@@ -50,8 +44,7 @@ export const atualizarCadastro = (req, res) => {
     })
 }
 
-// Deletar contribuinte/forncedor do banco de dados
-export const deletarCadastro = (req, res) => {
+export const deleteUser = (req, res) => {
     const q = "DELETE FROM `db_control_pag`.`users` WHERE (`id`=?)";
 
     db.query(q, [req.params.id], (err) => {

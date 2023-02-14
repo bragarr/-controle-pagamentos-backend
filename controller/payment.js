@@ -1,10 +1,9 @@
 import { db } from "../db.js";
 
-// Fluxo de Pagamentos
+// PayControl
 
-//Modulo de funções para registro de pagamentos
-export const coletarPagamentos = (_, res) => {
-    const q = "SELECT * FROM fluxo_caixa";
+export const getAllPayment = (_, res) => {
+    const q = "SELECT * FROM pay_control";
 
     db.query(q, (err, data) => {
         if(err) return res.json()
@@ -12,18 +11,17 @@ export const coletarPagamentos = (_, res) => {
     });
 };
 
-// Inserir um novo pagamento no banco de dados
-export const criarPagamentos = (req, res) => {
-    const q = "INSERT INTO fluxo_caixa(`nome`,`tipo_pagamento`, `categoria`,`valor_pagamento`,`obs`,`data_pagamento`,`usuario`) VALUES(?)";
+export const addNewPayment = (req, res) => {
+    const q = "INSERT INTO pay_control(`name`,`type`, `category`,`value`,`obs`,`date`,`user`) VALUES(?)";
 
     const values = [
-        req.body.nome,
-        req.body.tipo_pagamento,
-        req.body.categoria,
-        req.body.valor_pagamento,
+        req.body.name,
+        req.body.type,
+        req.body.category,
+        req.body.value,
         req.body.obs,
-        req.body.data_pagamento,
-        req.body.usuario
+        req.body.date,
+        req.body.user
     ];
 
     db.query(q, [values], (err) => {
@@ -33,31 +31,29 @@ export const criarPagamentos = (req, res) => {
     })
 }
 
-// Atualizar pagamentos presentes no banco de dados
-export const atualizarPagamentos = (req, res) => {
-    const q = "UPDATE `db_control_pag`.`fluxo_caixa` SET `nome`=?, `tipo_pagamento`=?, `categoria`=?,`valor_pagamento`=?,`obs`=?,`data_pagamento`=? WHERE (`idfluxo_caixa`=?)";
+export const updatePayment = (req, res) => {
+    const q = "UPDATE `db_control_pag`.`pay_control` SET `name`=?, `type`=?, `category`=?,`value`=?,`obs`=?,`date`=? WHERE (`idpay_control`=?)";
 
     const values = [
-        req.body.nome,
-        req.body.tipo_pagamento,
-        req.body.categoria,
-        req.body.valor_pagamento,
+        req.body.name,
+        req.body.type,
+        req.body.category,
+        req.body.value,
         req.body.obs,
-        req.body.data_pagamento
+        req.body.date
     ];
 
-    db.query(q, [...values, req.params.idfluxo_caixa], (err) => {
+    db.query(q, [...values, req.params.idpay_control], (err) => {
         if(err) return res.json(err);
 
         return res.status(200).json("Data updated!");
     })
 }
 
-// Deletar pagamento do banco de dados
-export const deletarPagamentos = (req, res) => {
-    const q = "DELETE FROM `db_control_pag`.`fluxo_caixa` WHERE (`idfluxo_caixa`=?)";
+export const deletePayment = (req, res) => {
+    const q = "DELETE FROM `db_control_pag`.`pay_control` WHERE (`idpay_control`=?)";
 
-    db.query(q, [req.params.idfluxo_caixa], (err) => {
+    db.query(q, [req.params.idpay_control], (err) => {
         if(err) return res.json(err);
 
         return res.status(200).json("Payment deleted!");
