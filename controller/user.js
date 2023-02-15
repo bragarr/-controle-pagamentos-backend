@@ -23,7 +23,7 @@ export const addNewUser = (req, res) => {
     db.query(q, [values], (err) => {
         if(err) return res.json(err);
 
-        return res.status(200).json("Cadastro criado com sucesso!");
+        return res.status(200).json("Register created!");
     })
 }
 
@@ -40,7 +40,7 @@ export const updateNewUser = (req, res) => {
     db.query(q, [...values, req.params.id], (err) => {
         if(err) return res.json(err);
 
-        return res.status(200).json("Data updated!");
+        return res.status(200).json("Register updated!");
     })
 }
 
