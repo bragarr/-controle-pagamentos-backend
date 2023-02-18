@@ -6,7 +6,7 @@ This application is responsible to create new data on PayControl app.
 
 -> Get, Add, Edit, Delete list of payments
 
--> Get, Add, Edit, Delete list of payments
+-> Get, Add, Edit, Delete list of categories
 
 
 ## Run app locally
